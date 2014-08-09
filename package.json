@@ -1,5 +1,5 @@
 {
-  "name": "jacs",
+  "name": "generator-jacs",
   "version": "0.0.1",
   "description": "Angular, Compass, Coffee, Jade, Grunt layout for ultrafast development",
   "main": "index.js",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/fmarcos83/jacs-generator/issues"
   },
-  "homepage": "https://github.com/fmarcos83/jacs-generator"
+  "homepage": "https://github.com/fmarcos83/jacs-generator",
+  "dependencies": {
+    "yeoman-generator": "^0.17.2"
+  }
 }
