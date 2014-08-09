@@ -1,0 +1,26 @@
+{
+  "name": "jacs",
+  "version": "0.0.1",
+  "description": "Angular, Compass, Coffee, Jade, Grunt layout for ultrafast development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fmarcos83/jacs-generator.git"
+  },
+  "keywords": [
+    "coffeescript",
+    "jade",
+    "compass",
+    "sass",
+    "grunt"
+  ],
+  "author": "fmarcos83@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fmarcos83/jacs-generator/issues"
+  },
+  "homepage": "https://github.com/fmarcos83/jacs-generator"
+}
