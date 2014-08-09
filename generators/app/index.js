@@ -11,7 +11,7 @@
       name: 'appName',
       message: 'Name of your app'
     },
-    DEFAULT_FOLDERS: ['src', 'src/style/sass', 'src/scripts'],
+    DEFAULT_FOLDERS: ['build', 'src/views', 'src/style/sass', 'src/scripts'],
     DEFAULT_FILES: ['Gruntfile.coffee', 'package.json', 'bower.json'],
     NPM_DEPENDENCIES: {
       MODULES: ['bower', 'coffee-script', 'groc', 'growl', 'grunt', 'grunt-bower-task', 'grunt-contrib-clean', 'grunt-contrib-coffee', 'grunt-contrib-compass', 'grunt-contrib-jade', 'grunt-contrib-requirejs', 'grunt-contrib-uglify', 'grunt-contrib-watch', 'grunt-http-server', 'grunt-notify'],

@@ -5,7 +5,8 @@ literal =
        name    : 'appName'
        message : 'Name of your app'
     DEFAULT_FOLDERS : [
-          'src'
+          'build'
+          'src/views'
           'src/style/sass'
           'src/scripts'
         ]
