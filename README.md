@@ -13,3 +13,8 @@ TODO
 - use sintactic versionning
 - publish it on NPM repository
 - auto livereload injection on development
+- support for requirejs
+- subcommands to:
+    - generate modules
+    - generate controllers on modules
+    - generate services
