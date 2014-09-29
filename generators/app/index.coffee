@@ -32,6 +32,12 @@ literal =
             'grunt-contrib-watch'
             'grunt-http-server'
             'grunt-notify'
+            'karma'
+            'karma-chrome-launcher'
+            'karma-firefox-launcher'
+            'karma-jasmine'
+            'karma-requirejs'
+            'requirejs'
         ]
         CONFIG:
             saveDev: true

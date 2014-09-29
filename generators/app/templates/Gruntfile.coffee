@@ -29,14 +29,12 @@ module.exports = (grunt) ->
         coffee:
             mocking:
                 files:[
-                    {
                         cwd:'src'
                         src:['**/*.coffee']
                         dest:'build'
                         expand:true
                         ext: '.js'
-                    }
-                ]
+                      ]
         compass:
             mocking:
                 options:
@@ -47,11 +45,17 @@ module.exports = (grunt) ->
                     httpImagesPath: "img"
         #end compile
         watch:
-            mocking:
-                files:'./src/**'
-                tasks: ['precompile:mocking']
-                options:
-                    livereload: true
+            jade:
+                files:'./src/**/*.jade'
+                tasks: ['jade']
+            coffee:
+                files:'./src/**/*.coffee'
+                tasks: ['coffee']
+            compass:
+                files:'./src/**/*.sass'
+                tasks: ['compass']
+            options:
+                livereload: true
         'http-server':
             mocking:
                 root:'build/'

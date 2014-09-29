@@ -49,7 +49,9 @@
             }
           ]
         }
-      },
+      }
+    });
+    return {
       compass: {
         mocking: {
           options: {
@@ -61,12 +63,20 @@
         }
       },
       watch: {
-        mocking: {
-          files: './src/**',
-          tasks: ['precompile:mocking'],
-          options: {
-            livereload: true
-          }
+        jade: {
+          files: './src/**/*.jade',
+          tasks: ['jade']
+        },
+        coffee: {
+          files: './src/**/*.coffee',
+          tasks: ['coffee']
+        },
+        compass: {
+          files: './src/**/*.sass',
+          tasks: ['compass']
+        },
+        options: {
+          livereload: true
         }
       },
       'http-server': {
@@ -87,22 +97,37 @@
           dest: 'build/<%= pkg.name %>.min.js'
         }
       }
-    });
-    grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-coffee');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-http-server');
-    grunt.loadNpmTasks('grunt-bower-task');
-    grunt.registerTask('server', ['compile', 'http-server:mocking', 'watch:mocking']);
-    grunt.registerTask('develop', ['server']);
-    grunt.registerTask('precompile', ['jade', 'coffee', 'compass']);
-    grunt.registerTask('compile', ['bower', 'precompile']);
-    grunt.registerTask('mocking', 'Prepares project for mocking', ["clean:all", "compile"]);
-    return grunt.registerTask('production', 'Prepares project for production', ["clean:all", "validate", "compile:production", "optimize", "package:browser"]);
+    };
   };
+
+  grunt.loadNpmTasks('grunt-notify');
+
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+
+  grunt.loadNpmTasks('grunt-contrib-clean');
+
+  grunt.loadNpmTasks('grunt-contrib-jade');
+
+  grunt.loadNpmTasks('grunt-contrib-compass');
+
+  grunt.loadNpmTasks('grunt-contrib-coffee');
+
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
+  grunt.loadNpmTasks('grunt-http-server');
+
+  grunt.loadNpmTasks('grunt-bower-task');
+
+  grunt.registerTask('server', ['compile', 'http-server:mocking', 'watch:mocking']);
+
+  grunt.registerTask('develop', ['server']);
+
+  grunt.registerTask('precompile', ['jade', 'coffee', 'compass']);
+
+  grunt.registerTask('compile', ['bower', 'precompile']);
+
+  grunt.registerTask('mocking', 'Prepares project for mocking', ["clean:all", "compile"]);
+
+  grunt.registerTask('production', 'Prepares project for production', ["clean:all", "validate", "compile:production", "optimize", "package:browser"]);
 
 }).call(this);
