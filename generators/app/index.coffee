@@ -19,7 +19,7 @@ literal =
         'karma.conf.js'
         'package.json'
         'bower.json'
-        {file:'require.coffee',dest:'test/'}
+        'test/require.coffee'
     ]
     NPM_DEPENDENCIES:
         MODULES:[

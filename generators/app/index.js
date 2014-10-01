@@ -11,12 +11,7 @@
       message: 'Name of your app'
     },
     DEFAULT_FOLDERS: ['build', 'src/views', 'src/style/sass', 'src/scripts', 'buildtest', 'test'],
-    DEFAULT_FILES: [
-      'Gruntfile.coffee', 'karma.conf.js', 'package.json', 'bower.json', {
-        file: 'require.coffee',
-        dest: 'test/'
-      }
-    ],
+    DEFAULT_FILES: ['Gruntfile.coffee', 'karma.conf.js', 'package.json', 'bower.json', 'test/require.coffee'],
     NPM_DEPENDENCIES: {
       MODULES: ['bower', 'coffee-script', 'groc', 'growl', 'grunt', 'grunt-bower-task', 'grunt-contrib-clean', 'grunt-contrib-coffee', 'grunt-contrib-compass', 'grunt-contrib-jade', 'grunt-contrib-requirejs', 'grunt-contrib-uglify', 'grunt-contrib-watch', 'grunt-http-server', 'grunt-notify', 'karma', 'karma-chrome-launcher', 'karma-firefox-launcher', 'karma-jasmine', 'karma-requirejs', 'requirejs'],
       CONFIG: {
