@@ -29,12 +29,24 @@ module.exports = (grunt) ->
         coffee:
             mocking:
                 files:[
-                        cwd:'src'
-                        src:['**/*.coffee']
-                        dest:'build'
-                        expand:true
-                        ext: '.js'
-                      ]
+                    cwd:'src'
+                    src:['**/*.coffee']
+                    dest:'build'
+                    expand:true
+                    ext: '.js'
+                ]
+            test:
+                files:[
+                    cwd:'test'
+                    src:['**/*.coffee']
+                    dest:'buildtest'
+                    expand:true
+                    ext: '.js'
+                ]
+        karma:
+            unit:
+                configFile: './karma.conf.js'
+                autoWatch: true
         compass:
             mocking:
                 options:
@@ -45,17 +57,14 @@ module.exports = (grunt) ->
                     httpImagesPath: "img"
         #end compile
         watch:
-            jade:
-                files:'./src/**/*.jade'
-                tasks: ['jade']
-            coffee:
-                files:'./src/**/*.coffee'
-                tasks: ['coffee']
-            compass:
-                files:'./src/**/*.sass'
-                tasks: ['compass']
-            options:
-                livereload: true
+            mocking:
+                files:'./src/**'
+                tasks: ['precompile:mocking']
+                options:
+                    livereload: true
+            test:
+                files:'./test/**'
+                tasks: ['coffee:test']
         'http-server':
             mocking:
                 root:'build/'
@@ -63,6 +72,7 @@ module.exports = (grunt) ->
                 autoIndex:true
                 defaultExt:'html'
                 runInBackground:true
+                host: '0.0.0.0'
         uglify:
             options:
                 banner: '/*!<%=pkg.name%><%=grunt.template.today("yyyy-mm-dd")%>*/\n'
@@ -72,7 +82,6 @@ module.exports = (grunt) ->
 
 
     grunt.loadNpmTasks 'grunt-notify'
-
     grunt.loadNpmTasks 'grunt-contrib-uglify'
     grunt.loadNpmTasks 'grunt-contrib-clean'
 
@@ -86,11 +95,16 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks 'grunt-http-server'
     grunt.loadNpmTasks 'grunt-bower-task'
 
+    #karma
+    grunt.loadNpmTasks 'grunt-karma'
+
     grunt.registerTask 'server',
     [
         'compile'
+        'coffee:test'
         'http-server:mocking'
-        'watch:mocking'
+        'karma:unit'
+        'watch'
     ]
 
     grunt.registerTask 'develop',
