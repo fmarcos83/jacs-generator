@@ -7,13 +7,11 @@ console.log tests
 require.config
   baseUrl     : "./"
   waitSeconds : 0
-  paths :
+  #paths :
     #'{requiremoduleName}':'{realpath}'
-    undefined
-  shim :
+  #shim :
     #'{newRequiredmoduleName}'
        #exports:{'oldRequiredmoduleName'}
-    undefined
 
   #loading all the tests before starting karma server
   deps: tests
