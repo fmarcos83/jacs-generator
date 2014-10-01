@@ -46,7 +46,7 @@ module.exports = (grunt) ->
         karma:
             unit:
                 configFile: './karma.conf.js'
-                autoWatch: true
+                runInBackground:true
         compass:
             mocking:
                 options:
@@ -57,6 +57,10 @@ module.exports = (grunt) ->
                     httpImagesPath: "img"
         #end compile
         watch:
+            configFiles:
+                files: 'Gruntfile.coffee'
+                options:
+                    reload:true
             mocking:
                 files:'./src/**'
                 tasks: ['precompile:mocking']
@@ -79,6 +83,9 @@ module.exports = (grunt) ->
             build:
                 src:  'src/js/<%= pkg.name %>.js'
                 dest: 'build/<%= pkg.name %>.min.js'
+        concurrent:
+            develop:['develop']
+            test:['karma']
 
 
     grunt.loadNpmTasks 'grunt-notify'
@@ -98,18 +105,22 @@ module.exports = (grunt) ->
     #karma
     grunt.loadNpmTasks 'grunt-karma'
 
-    grunt.registerTask 'server',
+    grunt.registerTask 'default',
     [
-        'compile'
-        'coffee:test'
-        'http-server:mocking'
-        'karma:unit'
-        'watch'
+        'develop'
     ]
 
     grunt.registerTask 'develop',
     [
         'server'
+        'watch'
+    ]
+
+    grunt.registerTask 'server',
+    [
+        'compile'
+        'coffee:test'
+        'http-server:mocking'
     ]
 
     grunt.registerTask 'precompile',
