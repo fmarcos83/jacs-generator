@@ -9,7 +9,9 @@ literal =
           'src/views'
           'src/style/sass'
           'src/scripts'
-        ]
+          'buildtest'
+          'test'
+    ]
     #TODO: set how you want to filter out files
     #whitelist or blacklist
     DEFAULT_FILES : [
@@ -17,6 +19,7 @@ literal =
         'karma.conf.js'
         'package.json'
         'bower.json'
+        {file:'require.coffee',dest:'test/'}
     ]
     NPM_DEPENDENCIES:
         MODULES:[
@@ -59,7 +62,8 @@ folderGenerator = (folderName) ->
     @mkdir "#{folderName}"
 
 copyFiles = (fileName) ->
-    @src.copy fileName, fileName
+    @src.copy fileName, fileName if (fileName).constructor == String
+    @src.copy fileName.file, "#{fileName.dest}#{fileName.file}" if (fileName).constructor == Object
 
 jacsGenerator  = {
                     constructor: ->
