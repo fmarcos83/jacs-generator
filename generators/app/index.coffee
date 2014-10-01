@@ -10,8 +10,11 @@ literal =
           'src/style/sass'
           'src/scripts'
         ]
+    #TODO: set how you want to filter out files
+    #whitelist or blacklist
     DEFAULT_FILES : [
         'Gruntfile.coffee'
+        'karma.conf.js'
         'package.json'
         'bower.json'
     ]
